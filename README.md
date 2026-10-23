@@ -187,7 +187,7 @@ See **[code/README.md](code/README.md)** for how each one works and how to insta
 | SSD, HDD | ₹0 — already owned |
 | Wi-Fi access point | ₹0 — previous router |
 | Jellyfin, AdGuard Home, Tailscale, Python | ₹0 — free and open source |
-| Windows 11 | Already licensed |
+| Windows 11 | Runs **unactivated** — see below |
 | **Total** | **₹0** |
 
 Running cost: measured CPU package power averages **1.7 W** at 2% load (peak 22 W). A whole-system estimate
@@ -209,9 +209,14 @@ the NAS I did not buy.
   together with watchdogs.
 - **Not TrueNAS.** The original plan was to wipe Windows and install TrueNAS SCALE. It did not happen, for a
   good reason: TrueNAS wants 8 GB of RAM minimum and really wants ECC memory and multiple disks. This machine
-  has 4 GB, one working memory slot and one SSD. Windows was already licensed and already installed, and
-  every service I needed runs natively on it. **Choosing the boring option that fits the hardware beat the
-  interesting option that does not.**
+  has 4 GB, one working memory slot and one SSD. Windows was already installed, and every service I needed
+  runs natively on it — including the hardware video transcoding that makes a 2-core CPU viable as a media
+  server. **Choosing the boring option that fits the hardware beat the interesting option that does not.**
+- **Not activated.** Windows here runs unactivated, on the generic installation key Setup uses when no key
+  is supplied. It receives security updates normally and only blocks personalisation — wallpaper, themes,
+  accent colours — none of which a headless server has any use for. Worth stating rather than implying a
+  licence that is not there. If that bothers you, Linux is the honest ₹0 answer and everything here except
+  the QuickSync configuration ports to it.
 - **Not finished.** See the roadmap below.
 
 ---

@@ -138,7 +138,12 @@ Standard library only — no pip, no requirements.txt. A consequence of 4 GB tha
 | PSU capacitor | ₹0 — salvaged |
 | SSD, HDD, access point | ₹0 — already owned |
 | Jellyfin, AdGuard, Tailscale, Python | ₹0 — open source |
+| Windows 11 | Runs **unactivated** |
 | **Total** | **₹0** |
+
+Windows runs **unactivated** — the generic installation key, no licence. It still takes security updates and
+only blocks personalisation, which a headless server never uses. Stated plainly rather than implying a
+licence that is not there.
 
 Running cost is the only ongoing one. Measured CPU package power averages **1.7 W** at 2% load (peak 22 W);
 a whole-system estimate is **20–30 W**, so roughly **0.5–0.7 units a day** — about 15–21 units a month.
