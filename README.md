@@ -134,6 +134,13 @@ Everything was recycled, repaired, or already owned.
 | Case, USB headers, cooler | Junkyard | Refitted and rewired |
 | Old Wi-Fi router | Replaced, gathering dust | Now an access point |
 
+<p align="center">
+  <img src="photos/motherboard-socket.jpeg" alt="The Gigabyte H110M-H motherboard with its CPU socket exposed" width="32%">
+  <img src="photos/psu-opened.jpeg" alt="The power supply opened for the capacitor replacement" width="32%">
+  <img src="photos/assembled-in-the-case.jpeg" alt="The parts fitted into the salvaged case, showing the Gigabyte splash screen" width="32%">
+</p>
+<p align="center"><i>Six bent socket pins straightened under magnification · a swollen 450 V capacitor replaced · assembled in the salvaged case.<br>The full story is in <a href="docs/01-hardware-rebuild.md">the rebuild</a>.</i></p>
+
 ### Honest limitations
 
 I would rather state these than have someone discover them:
