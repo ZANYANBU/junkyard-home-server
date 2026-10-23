@@ -1,4 +1,6 @@
-# 8. File sharing
+---
+title: File sharing
+---
 
 Reaching the server's files from any device, at home or away — without a NAS.
 

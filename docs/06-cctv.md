@@ -1,4 +1,6 @@
-# 6. Reading the CCTV
+---
+title: Reading the CCTV
+---
 
 Watching the house cameras from anywhere, without the manufacturer's cloud and without exposing the DVR.
 

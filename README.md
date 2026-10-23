@@ -190,7 +190,13 @@ See **[code/README.md](code/README.md)** for how each one works and how to insta
 | Windows 11 | Already licensed |
 | **Total** | **₹0** |
 
-Running cost is about 35–45 W, roughly ₹25 a month at local tariffs — and the solar panels cover daylight hours.
+Running cost: measured CPU package power averages **1.7 W** at 2% load (peak 22 W). A whole-system estimate
+is **20–30 W**, so roughly **0.5–0.7 units a day**, 15–21 units a month. The solar panels cover the daylight
+share.
+
+> That system figure is an estimate. 1.7 W is the CPU package alone, from its own sensor; board, RAM, SSD,
+> fans and power-supply losses are inferred, and an old PSU is inefficient at low load. A plug-in energy
+> meter would settle it properly.
 
 For comparison, the subscriptions this replaced would be somewhere north of ₹1,500 a month, before counting
 the NAS I did not buy.

@@ -1,4 +1,6 @@
-# 7. Keeping it alive
+---
+title: Keeping it alive
+---
 
 A headless machine with a weak cooler, an unreliable network card and unstable mains, in a house with nobody
 to look after it.

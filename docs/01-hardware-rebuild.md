@@ -1,4 +1,6 @@
-# 1. The rebuild
+---
+title: The rebuild
+---
 
 Turning a pile of e-waste into a machine that boots.
 

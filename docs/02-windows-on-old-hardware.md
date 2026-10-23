@@ -1,4 +1,6 @@
-# 2. Windows 11 on unsupported hardware
+---
+title: Windows 11 on unsupported hardware
+---
 
 Getting a modern OS onto a 2015 processor, then cutting it down to fit 4 GB of RAM.
 

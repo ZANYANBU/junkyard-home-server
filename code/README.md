@@ -1,4 +1,6 @@
-# Code
+---
+title: Code
+---
 
 The working pieces, as they actually run on the server. Standard library only — no pip, no
 `requirements.txt`, no virtualenv. That is a consequence of having 4 GB of RAM, and it turned out to be a

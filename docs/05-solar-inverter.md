@@ -1,4 +1,6 @@
-# 5. Reading the solar inverter
+---
+title: Reading the solar inverter
+---
 
 Getting a rooftop solar inverter to report to me instead of to its manufacturer — and what the data revealed.
 

@@ -1,17 +1,20 @@
-# Settings for the GitHub Pages site: https://zanyanbu.github.io/junkyard-home-server/
+# GitHub Pages site: https://zanyanbu.github.io/junkyard-home-server/
 title: Junkyard Home Server
-description: A dead PC rebuilt from e-waste into the machine that runs my house — media, solar monitoring, DNS filtering and CCTV, for ₹0
-theme: jekyll-theme-cayman
-show_downloads: false
+tagline: A dead PC, rebuilt to run a house
+lead: Pulled from e-waste, repaired, and turned into a home server — media, solar monitoring, DNS filtering and private CCTV. Total cost ₹0.
+description: A dead PC rebuilt from e-waste into a home server — media streaming, solar inverter monitoring over Modbus, DNS filtering and private CCTV access. Built for ₹0.
 
-# Render the documents under docs/ with the site theme, not as raw files.
+github_username: ZANYANBU
+repo_name: junkyard-home-server
+
+# Custom layout in _layouts/default.html — no external theme.
 defaults:
   - scope:
       path: ""
     values:
       layout: default
 
-# Keep working files out of the published site.
 exclude:
   - LICENSE
   - .gitignore
+  - code/*.py

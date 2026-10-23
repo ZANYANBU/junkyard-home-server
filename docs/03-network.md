@@ -1,4 +1,6 @@
-# 3. The network
+---
+title: The network
+---
 
 Including an old Wi-Fi router pressed into service as an access point, and a broadcast problem that cost a
 day to find.
