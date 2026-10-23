@@ -1,5 +1,6 @@
 ---
 title: Code
+permalink: /code/
 ---
 
 The working pieces, as they actually run on the server. Standard library only — no pip, no
