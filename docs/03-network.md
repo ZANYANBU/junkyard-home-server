@@ -8,23 +8,26 @@ day to find.
 ## The layout
 
 ```
-                    Internet (fibre)
-                           │
-                  ┌────────▼────────┐
-                  │   ISP router    │  192.168.1.1
-                  │  (gateway/DHCP) │  Wi-Fi 2.4 + 5 GHz
-                  └───┬────────┬────┘
-            Ethernet  │        │  Ethernet
-          ┌───────────▼──┐  ┌──▼──────────────┐
-          │  HOME SERVER │  │  Old Wi-Fi router│  192.168.1.250
-          │ 192.168.1.200│  │  as access point │
-          │   (static)   │  │   (DHCP OFF)     │
-          └──────────────┘  └─────────┬────────┘
-                                      │ Wi-Fi
-                            Devices in the far rooms
+                     Internet (fibre)
+                            │
+                   ┌────────▼────────┐
+                   │   ISP router    │   .1
+                   │  (gateway/DHCP) │   Wi-Fi 2.4 + 5 GHz
+                   └───┬─────────┬───┘
+             Ethernet  │         │  Ethernet
+           ┌───────────▼────┐  ┌─▼────────────────┐
+           │  HOME SERVER   │  │ Old Wi-Fi router │   .250
+           │     (static)   │  │ as access point  │
+           │      .200      │  │   (DHCP OFF)     │
+           └────────────────┘  └────────┬─────────┘
+                                        │ Wi-Fi
+                              Devices in the far rooms
 ```
 
 Also on the LAN: the solar inverter, the DVR and the television — each with a fixed address.
+
+> **Addresses in these documents are illustrative.** The pattern is what matters, not the numbers — pick a
+> range that suits your own network.
 
 ---
 
@@ -43,7 +46,7 @@ The principle is to **disable everything that makes it a router** and leave only
 
 1. **Turn off its DHCP server.** This is the critical step. Two DHCP servers on one network hand out
    conflicting addresses and cause intermittent, maddening failures.
-2. **Give it a static IP** on the main network, outside the main router's DHCP range — here `192.168.1.250`.
+2. **Give it a static IP** on the main network, outside the main router's DHCP range — here `192.168.10.250`.
    This is purely so you can reach its admin page later.
 3. **Cable it LAN port → LAN port.** Never use its WAN/Internet port — that is what activates routing and
    NAT. Using a LAN port makes it a dumb switch with a radio attached.

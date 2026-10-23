@@ -3,3 +3,15 @@ title: Junkyard Home Server
 description: A dead PC rebuilt from e-waste into the machine that runs my house — media, solar monitoring, DNS filtering and CCTV, for ₹0
 theme: jekyll-theme-cayman
 show_downloads: false
+
+# Render the documents under docs/ with the site theme, not as raw files.
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+
+# Keep working files out of the published site.
+exclude:
+  - LICENSE
+  - .gitignore

@@ -41,7 +41,7 @@ back to a relay automatically — slower, but it kept working without interventi
 
 - **Unattended mode** — connects at boot with nobody signed in. Essential on a headless machine.
 - **Accept-routes off.** This one bit me. A stale device on the account was advertising a route for
-  `192.168.1.0/24`, and the client accepted it by default — which broke the server's access to its *own
+  `192.168.10.0/24`, and the client accepted it by default — which broke the server's access to its *own
   local network*. Symptoms were bizarre and took a while to trace. Unless you are deliberately using subnet
   routing, turn it off.
 - **Key expiry disabled** for the server, so it does not drop off the mesh months later while nobody is
@@ -93,7 +93,7 @@ The SSH rule allows **only** the home subnet and the Tailscale range:
 ```powershell
 New-NetFirewallRule -Name OpenSSH-Server-In-TCP -DisplayName 'OpenSSH Server' `
   -Direction Inbound -Protocol TCP -LocalPort 22 -Profile Private `
-  -RemoteAddress 192.168.1.0/24,100.64.0.0/10 -Action Allow
+  -RemoteAddress 192.168.10.0/24,100.64.0.0/10 -Action Allow
 ```
 
 Every service follows the same pattern — media server, DNS, dashboard, cameras. Private profile, two address
@@ -113,7 +113,7 @@ $(cat)"
 b64=$(printf '%s' "$script" | iconv -f UTF-8 -t UTF-16LE | base64 | tr -d '\n')
 
 # Home address first; fall back to the mesh address when away.
-host=192.168.1.200
+host=192.168.10.200
 nc -z -G 3 "$host" 22 >/dev/null 2>&1 || host=<tailscale-address>
 
 ssh -o BatchMode=yes -o ConnectTimeout=10 "user@$host" \

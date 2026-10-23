@@ -97,7 +97,7 @@ A watchdog with escalating responses:
 | Mesh disconnected 6 min | Restart the mesh service |
 
 ```python
-TARGETS = [("192.168.1.1", 80), ("192.168.1.2", 80), ("1.1.1.1", 443)]
+TARGETS = [("192.168.10.1", 80), ("192.168.10.2", 80), ("1.1.1.1", 443)]
 
 def network_ok():
     """Any one of router, DVR or internet answering means the network works."""

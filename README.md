@@ -102,14 +102,14 @@ exists because the thing it guards against *actually happened*, usually at an in
 
 ## What it runs
 
-| Service | Port | What it does |
-| --- | --- | --- |
-| **Jellyfin** | 8096 | Films to the TV, phones and laptops, with hardware transcoding |
-| **Solar dashboard** | 8099 | Reads the inverter every minute; web dashboard, TV view, printable reports |
-| **AdGuard Home** | 53 / 3000 | House DNS: blocks ads, trackers and adult sites |
-| **Camera viewer** | 8787 | Live CCTV from the DVR, on demand only |
-| **Tailscale** | — | Private mesh access from anywhere |
-| **OpenSSH** | 22 | Remote administration from a Mac |
+| Service | What it does |
+| --- | --- |
+| **Jellyfin** | Films to the TV, phones and laptops, with hardware transcoding |
+| **Solar dashboard** | Reads the inverter every minute; web dashboard, TV view, printable reports |
+| **AdGuard Home** | House DNS: blocks ads, trackers and adult sites |
+| **Camera viewer** | Live CCTV from the DVR, on demand only |
+| **Tailscale** | Private mesh access from anywhere |
+| **OpenSSH** | Remote administration from a Mac |
 
 Plus three things with no user interface, which are arguably the most important parts:
 
