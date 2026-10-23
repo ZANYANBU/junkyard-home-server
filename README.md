@@ -165,6 +165,16 @@ The detail lives in separate documents so this page stays readable:
 | **[Keeping it alive](docs/07-keeping-it-alive.md)** | Thermal governor, network watchdog, health logging |
 | **[File sharing](docs/08-file-sharing.md)** | Windows sharing over the private mesh |
 
+And the working code, standard library only:
+
+| File | What it is |
+| --- | --- |
+| **[CPU temperature governor](code/cpu-temperature-governor.py)** | Keeps a badly-cooled CPU under 90 °C by driving Windows' processor speed limit |
+| **[Network watchdog](code/network-watchdog.py)** | Recovers the network when the adapter silently stops passing traffic |
+| **[Solar inverter reader](code/read-solar-inverter.py)** | Modbus TCP client in ~30 lines — reads any inverter that speaks it |
+
+See **[code/README.md](code/README.md)** for how each one works and how to install it.
+
 ---
 
 ## What it cost
