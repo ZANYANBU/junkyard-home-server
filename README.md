@@ -194,7 +194,7 @@ the NAS I did not buy.
   good reason: TrueNAS wants 8 GB of RAM minimum and really wants ECC memory and multiple disks. This machine
   has 4 GB, one working memory slot and one SSD. Windows was already licensed and already installed, and
   every service I needed runs natively on it. **Choosing the boring option that fits the hardware beat the
-  interesting option that does not.** The repository name still says `truenas` for historical reasons.
+  interesting option that does not.**
 - **Not finished.** See the roadmap below.
 
 ---
