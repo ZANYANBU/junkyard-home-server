@@ -1,3 +1,8 @@
 __pycache__/
 *.pyc
 .DS_Store
+
+# Device pairing keys and any local secrets - never commit these
+lg-tv-key.txt
+*key*.txt
+.env

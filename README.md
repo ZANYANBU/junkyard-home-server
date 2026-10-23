@@ -130,7 +130,7 @@ Everything was recycled, repaired, or already owned.
 | Mercury PSU | Swollen 450 V capacitor | Capacitor replaced, rails verified |
 | 4 GB DDR4-2133 | Salvaged | Working — and the current bottleneck |
 | 256 GB SSD | Spare | System drive |
-| 320 GB laptop HDD | No partitions, presumed dead | **200 GB of family photos recovered** |
+| 320 GB laptop HDD | No partitions, presumed dead | **200 GB of family photos recovered** with open-source [TestDisk](https://www.cgsecurity.org/wiki/TestDisk) |
 | Case, USB headers, cooler | Junkyard | Refitted and rewired |
 | Old Wi-Fi router | Replaced, gathering dust | Now an access point |
 
@@ -172,6 +172,7 @@ And the working code, standard library only:
 | **[CPU temperature governor](code/cpu-temperature-governor.py)** | Keeps a badly-cooled CPU under 90 °C by driving Windows' processor speed limit |
 | **[Network watchdog](code/network-watchdog.py)** | Recovers the network when the adapter silently stops passing traffic |
 | **[Solar inverter reader](code/read-solar-inverter.py)** | Modbus TCP client in ~30 lines — reads any inverter that speaks it |
+| **[LG TV control](code/control-lg-tv.py)** | Puts the dashboard on the television from the server, with no cloud account |
 
 See **[code/README.md](code/README.md)** for how each one works and how to install it.
 

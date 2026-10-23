@@ -9,6 +9,7 @@ feature: nothing to install, nothing to update, nothing to rot.
 | [`cpu-temperature-governor.py`](cpu-temperature-governor.py) | Keeps a badly-cooled CPU below 90 °C by moving Windows' processor speed limit | Windows |
 | [`network-watchdog.py`](network-watchdog.py) | Recovers the network when the adapter silently stops passing traffic | Windows |
 | [`read-solar-inverter.py`](read-solar-inverter.py) | Reads a grid-tied inverter over Modbus TCP | Any OS |
+| [`control-lg-tv.py`](control-lg-tv.py) | Drives an LG webOS television from the server — no cloud, no app | Any OS |
 
 Addresses in these files are illustrative. Change them to suit your network.
 
@@ -167,6 +168,10 @@ $ python3 read-solar-inverter.py 192.168.10.5
 Modbus tells you *how* to read registers, not what they mean. That mapping is vendor-specific and rarely
 published.
 
+> The map in this script was worked out against a **Polycab PSIS-4K0** (4 kW single-phase). It will likely
+> suit other inverters in that family, and is a reasonable starting point for any brand — but treat it as a
+> hypothesis to test, not a specification.
+
 1. **Search first** — `<manufacturer> <model> modbus register map`. Someone has often done it already.
 2. **Explore** — `--raw 0x1001 32` dumps a block, showing each value at ÷10 and ÷100 so the right scaling is
    obvious at a glance.
@@ -205,6 +210,60 @@ entirely.
 - **Treat a timeout as normal**, not an error — log it and carry on
 
 That yields ~550 good readings across a day with one or two misses, which is healthy for a cheap radio.
+
+---
+
+## control-lg-tv.py
+
+**The problem it solves:** the television is the best screen in the house, and it sits idle. LG's own answer
+to "show something on it" is their app and their account. But webOS exposes a **local control API** on
+`wss://TV:3001` — no cloud, no account, no internet.
+
+The server uses it to put the solar dashboard on screen the moment the TV is switched on, and to show a
+one-line summary in the evening.
+
+```
+$ python3 control-lg-tv.py 192.168.10.3 pair       # once; accept the prompt on the TV
+paired; key saved to lg-tv-key.txt (keep it private, do not commit it)
+
+$ python3 control-lg-tv.py 192.168.10.3 awake      # cheap check, safe to poll
+on
+$ python3 control-lg-tv.py 192.168.10.3 state      # Active / Screen Off / Suspend
+Active
+$ python3 control-lg-tv.py 192.168.10.3 toast "Solar today: 13.2 units, 96% of expected"
+$ python3 control-lg-tv.py 192.168.10.3 open http://192.168.10.200:8099/tv
+```
+
+### How it works
+
+LG's protocol is JSON over a websocket, with requests addressed as `ssap://…` URIs. The whole client is
+`socket`, `ssl`, `struct` and `json` — including a minimal RFC 6455 websocket implementation, because client
+frames must be masked and nothing in the standard library does that for you.
+
+Pairing happens once. The TV shows a prompt listing the permissions requested; accepting it returns a
+**client key**, which is stored and replayed on every later connection so the prompt never appears again.
+
+### ⚠️ Security, honestly
+
+This is a device on your network that accepts commands, so the details matter:
+
+- **The client key is a credential.** Anything holding it can control the television — switch inputs, launch
+  apps, put messages on screen. The script writes it to `lg-tv-key.txt`, sets `0600` where the OS supports
+  it, and **never prints it**. That file is in `.gitignore`, along with a `*key*.txt` catch-all.
+- **Certificate verification is disabled**, because the TV presents a self-signed certificate. The encryption
+  therefore protects against passive snooping but *not* against someone positioned to impersonate the TV on
+  your LAN. Acceptable for a television; do not copy this pattern anywhere it matters.
+- **Port 3001 must never be reachable from the internet.** Nothing here requires it to be.
+- **No camera or microphone.** The permissions requested cover launching apps, reading power state and
+  showing notifications. It cannot see or hear anything.
+- **It refuses to re-pair silently.** If the stored key stops being accepted, the script closes the
+  connection and reports it, rather than leaving a pairing prompt sitting on a family TV screen.
+
+### Polling it gently
+
+`awake` is a bare TCP connection test — far cheaper than a full websocket handshake, and safe to call every
+few seconds. The server polls that, and only opens a real connection when the state actually changes from
+off to on. A TV that is off simply does not answer, which is not an error and should not be logged as one.
 
 ---
 
