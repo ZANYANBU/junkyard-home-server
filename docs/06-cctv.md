@@ -176,8 +176,8 @@ Plus limits on concurrent streams per client, and throttling after repeated fail
 
 - **The DVR is still on DHCP.** It has changed address once already and broke the viewer until it was
   tracked down. It needs a static address set in its own menu.
-- **Its admin credentials are weak.** It is isolated on the LAN with no internet exposure, which contains the
-  risk, but it should be fixed properly.
+- **Its authentication needs hardening.** The device is isolated on the LAN with no route in from the
+  internet, which contains the risk, but containment is not the same as fixing it.
 
 ---
 
